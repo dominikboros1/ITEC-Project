@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqpfsv40k8bym"]
+
+[ext_resource type="Script" path="res://pauemenu.gd" id="1_0uhqr"]
+[ext_resource type="Texture2D" uid="uid://b6qa52hhfbdvx" path="res://pausemenu.png" id="2_ouj6p"]
+[ext_resource type="Shader" path="res://pauemenu.gdshader" id="2_ujwmm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t10uh"]
+shader = ExtResource("2_ujwmm")
+shader_parameter/amount = 3.0
+
+[node name="Pauemenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 131.0
+offset_top = -61.0
+offset_right = 131.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0uhqr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_t10uh")
+layout_mode = 0
+offset_left = -122.0
+offset_top = 60.0
+offset_right = 1039.0
+offset_bottom = 712.0
+
+[node name="Pausemenu" type="Sprite2D" parent="."]
+position = Vector2(475, 417)
+scale = Vector2(0.948438, 0.944444)
+texture = ExtResource("2_ouj6p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 334.0
+offset_right = 484.0
+offset_bottom = 492.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "     
+
+
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

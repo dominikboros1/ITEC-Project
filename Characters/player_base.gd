@@ -1,8 +1,6 @@
 extends CharacterBody2D
 @export var speed: float = 100
 @export var accel: float = 10
-var current_dir = "none"
-var movement = 0
 
 func _physics_process(_delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
@@ -13,40 +11,17 @@ func _physics_process(_delta: float) -> void:
 	
 	if direction.x == 1:
 		anim.flip_h = false
-		movement = 1
-		if movement == 1:
-			anim.play("walk right")
-		elif movement == 0:
-			anim.play("idle_side")
+		anim.play("walk right")
 		
 	if direction.x == -1:
 		anim.flip_h = false
-		movement = 1
-		if movement == 1:
-			anim.play("walk left")
-		elif movement == 0:
-			anim.play("idle")
+		anim.play("walk left")
 		
 	if direction.y == 1:
-		anim.flip_h = false
-		movement = 1
-		if movement == 1:
-			anim.play("walk right")
-		elif movement == 0:
-			anim.play("idle")
+		anim.flip_h = true
+		anim.play("walk_right")
 		
 	if direction.y == -1:
-		movement = 1
-		if movement == 1:
-			anim.play("walk left")
-		elif movement == 0:
-			anim.play("idle")
-	if direction.x == 0 && direction.y == 0:
-		movement = 0
-		if movement == 1:
-			anim.play("walk right")
-		elif movement == 0:
-			anim.play("idle")
-	#else:
-		#anim.play("idle")
+		anim.flip_h = true
+		anim.play("walk_left")
 	move_and_slide()

@@ -13,15 +13,17 @@ func _physics_process(_delta: float) -> void:
 		anim.flip_h = false
 		anim.play("walk right")
 		
-	if direction.x == -1:
+	elif direction.x == -1:
 		anim.flip_h = false
 		anim.play("walk left")
 		
-	if direction.y == 1:
-		anim.flip_h = true
-		anim.play("walk_right")
+	elif direction.y == 1:
+		anim.flip_h = false
+		anim.play("walk right")
 		
-	if direction.y == -1:
-		anim.flip_h = true
-		anim.play("walk_left")
-	move_and_slide()
+	elif direction.y == -1:
+		anim.flip_h = false
+		anim.play("walk left")
+	#else:
+		#anim.play("idle")
+	#move_and_slide()

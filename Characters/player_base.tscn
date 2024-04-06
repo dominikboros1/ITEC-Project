@@ -152,7 +152,7 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_pjyp1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(7, 4)
+position = Vector2(9, -3)
 scale = Vector2(2.27083, 1.84568)
 sprite_frames = SubResource("SpriteFrames_5ufct")
 animation = &"idle"
